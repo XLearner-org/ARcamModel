@@ -1,7 +1,7 @@
 import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.118/build/three.module.js';
 import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/loaders/GLTFLoader.js';
 
-import {OrbitControls} from 'https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js';
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.118/examples/jsm/controls/OrbitControls.js';
 
 
 class BasicWorldDemo {
@@ -11,13 +11,13 @@ class BasicWorldDemo {
 
   _Initialize() {
 
-    
+
     this._threejs = new THREE.WebGLRenderer({
       antialias: true,
     });
 
     const loader = new GLTFLoader();
-    loader.load('Add Model LOCATION From SERVER',
+    loader.load('https://rawcdn.githack.com/nitrohero/ARcamModel/6598495bbba3fd9fcc0f23afe33103c714054cd2/resources/monk.test.2.gltf',
       (gltf) => {
         const model = gltf.scene;
         model.position.set(90, 90, 90);
@@ -96,10 +96,10 @@ class BasicWorldDemo {
     this._scene.background = texture;
 
     const plane = new THREE.Mesh(
-        new THREE.PlaneGeometry(100, 100, 10, 10),
-        new THREE.MeshStandardMaterial({
-            color: 0xFFFFFF,
-          }));
+      new THREE.PlaneGeometry(100, 100, 10, 10),
+      new THREE.MeshStandardMaterial({
+        color: 0xFFFFFF,
+      }));
     plane.castShadow = false;
     plane.receiveShadow = true;
     plane.rotation.x = -Math.PI / 2;
@@ -108,7 +108,7 @@ class BasicWorldDemo {
     const box = new THREE.Mesh(
       new THREE.BoxGeometry(2, 2, 2),
       new THREE.MeshStandardMaterial({
-          color: 0xFFFFFF,
+        color: 0xFFFFFF,
       }));
     box.position.set(0, 1, 0);
     box.castShadow = true;
@@ -120,7 +120,7 @@ class BasicWorldDemo {
         const box = new THREE.Mesh(
           new THREE.BoxGeometry(2, 2, 2),
           new THREE.MeshStandardMaterial({
-              color: 0x808080,
+            color: 0x808080,
           }));
         box.position.set(Math.random() + x * 5, Math.random() * 4.0 + 2.0, Math.random() + y * 5);
         box.castShadow = true;
@@ -129,7 +129,7 @@ class BasicWorldDemo {
       }
     }
 
-    
+
 
 
 
