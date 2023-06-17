@@ -17,10 +17,10 @@ class BasicWorldDemo {
     });
 
     const loader = new GLTFLoader();
-    loader.load('https://rawcdn.githack.com/nitrohero/ARcamModel/6598495bbba3fd9fcc0f23afe33103c714054cd2/resources/monk.test.2.gltf',
+    loader.load('https://rawcdn.githack.com/nitrohero/gltf-models/e7a55e20abae73d05cef4ca386701f2d9862eba0/ferrari.gltf',
       (gltf) => {
         const model = gltf.scene;
-        model.position.set(0, 2, 0); // Adjust the position of the model relative to the plane
+        model.position.set(3, 10, 0); // Adjust the position of the model relative to the plane
         model.scale.set(20, 20, 20);
         model.rotation.set(0, Math.PI, 0); // Adjust the rotation of the model if needed
         this._scene.add(model);
@@ -51,7 +51,7 @@ class BasicWorldDemo {
 
     this._scene = new THREE.Scene();
 
-    let light = new THREE.DirectionalLight(0xFFFFFF, 1.0);
+    let light = new THREE.DirectionalLight(0xFFFFFF, 2.0);
     light.position.set(20, 100, 10);
     light.target.position.set(0, 0, 0);
     light.castShadow = true;
