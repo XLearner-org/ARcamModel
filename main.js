@@ -20,9 +20,9 @@ class BasicWorldDemo {
     loader.load('https://rawcdn.githack.com/nitrohero/ARcamModel/6598495bbba3fd9fcc0f23afe33103c714054cd2/resources/monk.test.2.gltf',
       (gltf) => {
         const model = gltf.scene;
-        model.position.set(90, 90, 90);
+        model.position.set(0, 2, 0); // Adjust the position of the model relative to the plane
         model.scale.set(20, 20, 20);
-        model.rotation.set(0, 0, 0);
+        model.rotation.set(0, Math.PI, 0); // Adjust the rotation of the model if needed
         this._scene.add(model);
       },
       undefined,
@@ -76,6 +76,24 @@ class BasicWorldDemo {
     controls.target.set(0, 20, 0);
     controls.update();
 
+    // const video = document.createElement('video');
+    // video.autoplay = true;
+    // video.width = window.innerWidth;
+    // video.height = window.innerHeight;
+
+    // navigator.mediaDevices.getUserMedia({ video: true })
+    //   .then((stream) => {
+    //     video.srcObject = stream;
+    //   })
+    //   .catch((error) => {
+    //     console.error('Unable to access the camera/webcam:', error);
+    //   });
+
+    // const texture = new THREE.VideoTexture(video);
+    // texture.minFilter = THREE.LinearFilter;
+    // this._scene.background = texture;
+
+    // this._scene.background = texture;
     const video = document.createElement('video');
     video.autoplay = true;
     video.width = window.innerWidth;
@@ -94,26 +112,27 @@ class BasicWorldDemo {
     this._scene.background = texture;
 
     this._scene.background = texture;
-
+    //    
     const plane = new THREE.Mesh(
       new THREE.PlaneGeometry(100, 100, 10, 10),
       new THREE.MeshStandardMaterial({
-        color: 0xFFFFFF,
+        color: 0xCCCCCC, // Specify the desired plain color using a hexadecimal value
       }));
+
     plane.castShadow = false;
     plane.receiveShadow = true;
     plane.rotation.x = -Math.PI / 2;
     this._scene.add(plane);
 
     const box = new THREE.Mesh(
-      new THREE.BoxGeometry(2, 2, 2),
+      new THREE.BoxGeometry(0, 0, 0),
       new THREE.MeshStandardMaterial({
         color: 0xFFFFFF,
       }));
     box.position.set(0, 1, 0);
     box.castShadow = true;
     box.receiveShadow = true;
-    // this._scene.add(box);
+    //this._scene.add(box);
 
     for (let x = -8; x < 8; x++) {
       for (let y = -8; y < 8; y++) {
